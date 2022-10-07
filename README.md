@@ -1,5 +1,8 @@
 # Genomic BigData Spark
 
+[![DOI](https://zenodo.org/badge/547302335.svg)](https://zenodo.org/badge/latestdoi/547302335)
+
+
 Placeholder Title: _Genomic BigData Warehousing with Apache Spark and LakeHouse Architecture_
 
 The following is excerpt. If you would like to read as Paper or Article like format, please see [99_writing.ipynb](99_writing.ipynb) for the draft.
