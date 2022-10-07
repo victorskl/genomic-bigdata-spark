@@ -1,0 +1,3 @@
+SequenceRunName,SequenceRunID,Timestamp,SubjectID,LibraryID,SampleID,SampleDescription,Gender,Race,Ethnicity,Proband,ProjectOwner,ProjectName,StudyID,StudyType,Pipeline,Phenotype,Collection,DiseaseCode,SNOMED
+221007_A00130_0001_BH27LKDMXX,r.heiX2reduche,2022-10-07,SBJ00001,L0000001,NA12878,CEPH/UTAH,Female,White,Utah/Mormon,Mother,JohnDoe,GiAB,NA12878,WGS,Somatic,normal,Apparently Healthy,MONDO:0007254,429740004
+221007_A00130_0001_BH27LKDMXX,r.heiX2reduche,2022-10-07,SBJ00002,L0000002,NA24385,PGP,Male,White,Ashkenazim Jewish,Son,JohnDoe,GiAB,NA12878,WGS,Somatic,normal,Apparently Healthy,MONDO:0004992,275937001

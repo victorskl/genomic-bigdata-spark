@@ -1,0 +1,5 @@
+.idea/
+*.iml
+
+.ipynb_checkpoints/
+*.bkp

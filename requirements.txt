@@ -1,0 +1,6 @@
+jupyterlab==3.4.8
+pyspark==3.3.0
+pyarrow==9.0.0
+pandas==1.5.0
+glow.py==1.2.1
+delta-spark==2.1.0
