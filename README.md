@@ -101,7 +101,7 @@ bcftools stats na12878-na24385-somatic-hg38-truth.vcf.gz > na12878-na24385-somat
 bcftools stats na12878-na24385-germline-hg38-truth.vcf.gz > na12878-na24385-germline-hg38-truth.stats.txt
 ```
 
-Next, we create `metadata.csv` that mock minimal meta information about individual details, some clinical and Phenotypic data mock up. To simplify thing, we arrange it in flat normalised table structure.
+Next, we create `metadata.csv` that mock minimal meta information about individual details, some clinical and Phenotypic data mock up. To simplify thing, we arrange it in flat denormalized table structure.
 
 ### JupyterLab
 
@@ -126,6 +126,27 @@ From JupyterLab interface, we open each notebook one by one in order. Execute ea
 
 ## Future Work
 
-This has yet to evaluate further on real world data workload (case by case basis) and, setting up some decent size cohort-wide data warehousing. Performance and feasibility study benchmarking on various technologies that underpin the setup. There is also to explore data partitioning within Deltatable or chosen LakeHouse table framework.
+### Point 1: Scalable and Feasibility
 
-We could also explore a more specialised Cloud-native BioInfo formats: `BioParquet` _ala_ [GeoParquet](https://github.com/opengeospatial/geoparquet)? We can also compare with other LakeHouse table framework: Iceberg, Hudi -- of which may or may not work better than Deltatable. Similarly, this entails more specific to Genomic such that `BioTable` or `GenomicTable` LakeHouse table specification effort?
+We hypothesize that, this approach should scale out well in theory. However, this has yet to evaluate further on real world data workload (case by case basis) and, setting up some decent size cohort-wide data warehousing. Performance and feasibility study benchmarking on various technologies that underpin the setup. There is also to explore nuances of data partitioning within Deltatable or chosen LakeHouse table framework.
+
+### Point 2: BioParquet and GenomicTable
+
+We could also explore a more specialised Cloud-native BioInfo formats: `BioParquet` _ala_ [GeoParquet](https://github.com/opengeospatial/geoparquet)? We can also do comparison study with other LakeHouse table frameworks: Iceberg, Hudi -- of which may or may not work better than Deltatable in Genomics data context, for example. Similarly, this entails more specific to Genomic such that pursuit into `BioTable` or `GenomicTable` LakeHouse table specification effort?
+
+### Point 3: Column and Row Level Security
+
+Since underlay data structure are now arranged in tabular form, we could explore data governance in terms of:
+- Column Level Data Masking
+- Row Level Data Masking 
+- Cell Level Data Masking
+
+Data masking or data access control list (ACL) is often desirable  in dealing with Human Genomics data; example scenario such as "Can we lock down or mask out by Chromosome number"; whereas there exists `chrom` or `contigName` column; or by masking some Genomics coordinate such as `POS` or `start` to `end` ranges, or well-known gene regions.
+
+Another hypothesis here is that, this should also work well in theory. As such Column, Row or Cell level data masking technique is well studied topics in traditional relational database.
+
+For those who are of special interest in this topic, the following are further pointers:
+- [AWS Governed Tables](https://www.google.com/search?q=aws+governed+tables)
+- [parquet column data masking](https://www.google.com/search?q=parquet+column+data+masking)
+- [parquet column level encryption](https://www.google.com/search?q=parquet+column+level+encryption)
+- [relational database column level data masking](https://www.google.com/search?q=relational+database+column+level+data+masking)
